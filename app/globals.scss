@@ -105,3 +105,14 @@ a {
     color-scheme: dark;
   }
 }
+
+.ReactModal__Overlay--after-open {
+  z-index: 9999 !important;
+}
+
+.ReactModal__Content {
+  background: white;
+  opacity: 1;
+  padding: 20px;
+  border: 1px solid #ccc
+}

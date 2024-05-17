@@ -52,6 +52,7 @@
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
+  cursor: pointer;
 }
 
 .card span {
@@ -78,31 +79,19 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 4rem 0;
-}
+  width: 800px;
+  height: 800px;
 
-.center::before {
-  background: var(--secondary-glow);
-  border-radius: 50%;
-  width: 480px;
-  height: 360px;
-  margin-left: -400px;
-}
+  & > div {
+    width: 800px;
+    height: 800px;
+  }
 
-.center::after {
-  background: var(--primary-glow);
-  width: 240px;
-  height: 180px;
-  z-index: -1;
-}
-
-.center::before,
-.center::after {
-  content: "";
-  left: 50%;
-  position: absolute;
-  filter: blur(45px);
-  transform: translateZ(0);
+  :global {
+    .leaflet-marker-icon {
+      width: auto !important;
+    }
+  }
 }
 
 .logo {
@@ -148,7 +137,7 @@
   }
 
   .center {
-    padding: 8rem 0 6rem;
+    padding: 6rem 0 6rem;
   }
 
   .center::before {
@@ -226,5 +215,33 @@
   }
   to {
     transform: rotate(0deg);
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  button {
+    padding: 2px 6px;
+  }
+}
+
+.cityForm {
+  display: flex;
+
+  .input {
+    margin-right: 10px;
+  }
+
+  .button {
+    padding: 4px 8px;
   }
 }
