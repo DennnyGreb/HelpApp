@@ -1,10 +1,12 @@
-import Image from "next/image";
-import ClientMap from '@/components/Map';
-import HelpChat from '@/components/HelpChat';
-import styles from "../page.module.scss";
+import dynamic from 'next/dynamic'
+
+const DynamicMap = dynamic(() => import('@/components/Map'), {
+    loading: () => <p>Loading...</p>,
+})
+
 
 export default function Map() {
     return (
-        <ClientMap />
+        <DynamicMap />
     );
 }
