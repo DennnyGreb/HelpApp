@@ -28,28 +28,26 @@ const customStyles = {
 };
 
 const LocationMarkers = () => {
-    const [markers, setMarkers] = useState((typeof window !== 'undefined' && window.localStorage.getItem('markers')) ? JSON.parse(window.localStorage.getItem('markers')) : []);
+    const [markers, setMarkers] = useState([]);
+
+    useEffect(() => {
+        const markersFromLocalStorage = JSON.parse(window.localStorage.getItem('markers')) || [];
+        console.log(markersFromLocalStorage);
+        if (markers.length && (markersFromLocalStorage.length !== markers.length)) {
+            window.localStorage.setItem('markers', JSON.stringify(markers));
+        }
+        if (!markers.length) {
+            setMarkers(markersFromLocalStorage);
+        }
+    }, [markers]);
+
     const map = useMapEvents({
         click(e) {
             const text = prompt();
             const newOne = {latlang: e.latlng, text: text};
-            markers.push();
-            setMarkers((prevValue) => [...prevValue, newOne]);
+            setMarkers(oldMarkers => [...oldMarkers, newOne]);
         }
     });
-    console.log(markers);
-    useEffect(() => {
-        if (typeof window !== 'undefined' && window.localStorage.getItem('markers')) {
-            setMarkers(JSON.parse(window.localStorage.getItem('markers')));
-        }
-    }, []);
-
-    useEffect(() => {
-        console.log(markers);
-        if (markers && typeof window !== 'undefined') {
-            window.localStorage.setItem('markers', JSON.stringify(markers));
-        }
-    }, [markers]);
 
     return (
         <React.Fragment>
