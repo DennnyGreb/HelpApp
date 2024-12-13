@@ -25,7 +25,6 @@ const customStyles = {
         width: '500px',
         height: '200px',
     },
-
 };
 
 const LocationMarkers = () => {
@@ -141,6 +140,7 @@ const Map = () => {
                     )
                 }
             </Modal>
+            <h2 className={styles.title}>Карта точок благодійної допомоги</h2>
             <div className={styles.center}>
                 {displayMap}
             </div>

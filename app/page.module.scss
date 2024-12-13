@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
@@ -9,9 +9,10 @@
 
 .description {
   display: inherit;
-  justify-content: inherit;
+  justify-content: space-between;
   align-items: inherit;
   font-size: 0.85rem;
+  margin-bottom: 32px;
   max-width: var(--max-width);
   width: 100%;
   z-index: 2;
@@ -72,6 +73,10 @@
   line-height: 1.5;
   max-width: 30ch;
   text-wrap: balance;
+}
+
+.title {
+  margin-bottom: 12px;
 }
 
 .center {
@@ -244,4 +249,53 @@
   .button {
     padding: 4px 8px;
   }
+}
+
+.helpChat {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+  .titleContainer {
+    margin-bottom: 12px;
+  }
+
+  .searchField {
+    display: flex;
+    margin-bottom: 12px;
+
+    .input {
+      background: #fff;
+      width: 350px;
+    }
+  }
+
+  .responseCard {
+    padding: 16px;
+  }
+
+  .questionCardContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .questionCard {
+    padding: 12px;
+    background: bisque;
+    margin-bottom: 12px;
+    margin-right: 8px;
+
+    div {
+      padding: 0;
+    }
+  }
+}
+
+.mainLinks {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
 }
